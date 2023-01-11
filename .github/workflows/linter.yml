@@ -16,6 +16,6 @@ jobs:
     # Шаги задачи
     steps:
       # Переключение на текущую ветку (обязательное действие, если нужен доступ к файлам репозитория)
-      - uses: actions/checkout@v2
+      - uses: actions/checkout@v3
       # Вызов Super Linter
-      - uses: docker://github/super-linter:v2.1.0
+      - uses: docker://github/super-linter:v4.10.0
