@@ -1,17 +1,19 @@
 @font-face {
-  font-family: "Gilroy-Heavy";
+  font-family: 'Gilroy-Heavy';
   src: url("../fonts/gilroy-heavy.eot");
   src: url("../fonts/gilroy-heavy.eot?#iefix") format("embedded-opentype"), url("../fonts/gilroy-heavy.woff") format("woff"), url("../fonts/gilroy-heavy.ttf") format("truetype"), url("../fonts/gilroy-heavy.svg#../fonts/gilroy-heavy") format("svg");
   font-weight: normal;
   font-style: normal;
 }
+
 @font-face {
-  font-family: "Jura";
+  font-family: 'Jura';
   src: url("../fonts/Jura-Bold.eot");
   src: url("../fonts/Jura-Bold.eot?#iefix") format("embedded-opentype"), url("../fonts/Jura-Bold.woff") format("woff"), url("../fonts/Jura-Bold.ttf") format("truetype"), url("../fonts/Jura-Bold.svg#../fonts/Jura-Bold") format("svg");
   font-weight: normal;
   font-style: normal;
 }
+
 .flamingo {
   background: rgb(118, 215, 235);
   background: linear-gradient(162deg, rgb(118, 215, 235) 0%, rgb(79, 207, 234) 68%, rgb(46, 182, 210) 100%);

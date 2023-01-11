@@ -8,8 +8,8 @@
 }
 }
 
-@include font-face("Gilroy-Heavy", '../fonts/gilroy-heavy', '', '../fonts/gilroy-heavy');
-@include font-face("Jura", '../fonts/Jura-Bold', '', '../fonts/Jura-Bold');
+@include font-face('Gilroy-Heavy', '../fonts/gilroy-heavy', '', '../fonts/gilroy-heavy');
+@include font-face('Jura', '../fonts/Jura-Bold', '', '../fonts/Jura-Bold');
 
 $gilroy-heavy: 'Gilroy-Heavy', serif;   
 $jura: 'Jura', serif;
