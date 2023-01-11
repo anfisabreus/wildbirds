@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Flamingo - Wild Birds </title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css">
+  <link rel="stylesheet" href="assets/jquery-ui.css">
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body class="bg-flamingo">
+
+  <div class="wrapper">
+    <div class="main flamingo">
+      <header>
+        <div class="logo">WildBirds</div> 
+<div class="nav-toggle"><svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M11.6666 8.33334L35 8.33334" stroke="white" stroke-width="4" stroke-linecap="square"/>
+<path d="M8.33337 20L35 20" stroke="white" stroke-width="4" stroke-linecap="square"/>
+<path d="M5 31.6667L35 31.6667" stroke="white" stroke-width="4" stroke-linecap="square"/>
+</svg></div>
+<div id="overlay"></div>
+        <nav>
+        
+          <ul class="nav">
+
+            <li class="flamingo-button close-button">Flamingo</li>
+            <li class="macaw-button close-button">Macaw</li>
+            <li class="colibri-button close-button">Colibri</li>
+            
+            
+          </ul>
+        </nav>
+      </header>
+ 
+      <section class="text-Flamingo">
+        <div class="bird-image image-flamingo"></div>
+      </section>
+      
+      <footer>
+   A wealth of expert bird and wildlife knowledge, from bird guides and identifying tools, to wildlife articles and brilliant nature films.    
+      </footer>
+    </div>
+  </div> 
+
+<script
+  src="https://code.jquery.com/jquery-3.6.1.min.js"
+  integrity="sha256-o88AwQnZB+VDvE9tvIXrMQaPlFFSUTR+nldQm1LuPXQ="
+  crossorigin="anonymous"></script>
+  <script src="assets/jquery-ui.js"></script>
+
+<script>
+  jQuery('.nav-toggle').click(function() {
+  jQuery('nav').animate( {width: 'toggle' }, 200, "linear");
+
+});
+
+  jQuery('.close-button').click(function() {
+  jQuery('nav').hide();
+
+});
+</script>
+  <script>
+ 
+
+
+// смена контента
+const addClass = (birdOne, birdTwo, birdThree) => {
+
+  let bgImage = document.querySelector('body');
+  bgImage.classList.add('bg-' + birdOne);
+  bgImage.classList.remove('bg-' + birdTwo, 'bg-' + birdThree);
+
+  let bgColor = document.querySelector('.main');
+  bgColor.classList.add(birdOne);
+  bgColor.classList.remove(birdTwo, birdThree);
+  
+  let birdImage = document.querySelector('.bird-image');
+  birdImage.classList.add('image-' + birdOne);
+  birdImage.classList.remove('image-' + birdTwo, 'image-' + birdThree);
+
+  let text = document.querySelector('section');
+  text.classList.add('text-' + birdOne[0].toUpperCase() + birdOne.slice(1));
+  text.classList.remove('text-' + birdTwo[0].toUpperCase() + birdTwo.slice(1), 'text-' + birdThree[0].toUpperCase() + birdThree.slice(1));
+
+}
+
+const flamingo = document.querySelector('.flamingo-button');
+const macaw = document.querySelector('.macaw-button');
+const colibri = document.querySelector('.colibri-button');
+
+const neclass = () => addClass('flamingo', 'macaw','colibri');
+const neclass1 = () => addClass('macaw', 'flamingo', 'colibri');
+const neclass2  = () => addClass( 'colibri', 'macaw', 'flamingo');
+
+flamingo.addEventListener('click', neclass, false);
+macaw.addEventListener('click', neclass1, false);
+colibri.addEventListener('click',  neclass2, false);
+
+
+</script>
+</body>
+</html>

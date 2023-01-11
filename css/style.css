@@ -1,0 +1,245 @@
+@font-face {
+  font-family: "Gilroy-Heavy";
+  src: url("../fonts/gilroy-heavy.eot");
+  src: url("../fonts/gilroy-heavy.eot?#iefix") format("embedded-opentype"), url("../fonts/gilroy-heavy.woff") format("woff"), url("../fonts/gilroy-heavy.ttf") format("truetype"), url("../fonts/gilroy-heavy.svg#../fonts/gilroy-heavy") format("svg");
+  font-weight: normal;
+  font-style: normal;
+}
+@font-face {
+  font-family: "Jura";
+  src: url("../fonts/Jura-Bold.eot");
+  src: url("../fonts/Jura-Bold.eot?#iefix") format("embedded-opentype"), url("../fonts/Jura-Bold.woff") format("woff"), url("../fonts/Jura-Bold.ttf") format("truetype"), url("../fonts/Jura-Bold.svg#../fonts/Jura-Bold") format("svg");
+  font-weight: normal;
+  font-style: normal;
+}
+.flamingo {
+  background: rgb(118, 215, 235);
+  background: linear-gradient(162deg, rgb(118, 215, 235) 0%, rgb(79, 207, 234) 68%, rgb(46, 182, 210) 100%);
+}
+
+.macaw {
+  background: rgb(253, 63, 98);
+  background: linear-gradient(162deg, rgb(253, 63, 98) 0%, rgb(255, 0, 46) 68%, rgb(217, 24, 59) 100%);
+}
+
+.colibri {
+  background: rgb(255, 227, 83);
+  background: linear-gradient(162deg, rgb(255, 227, 83) 0%, rgb(255, 203, 17) 68%, rgb(224, 162, 1) 100%);
+}
+
+.image-flamingo {
+  background-image: url("../img/flamingo.png");
+}
+
+.image-macaw {
+  background-image: url("../img/macaw.png");
+}
+
+.image-colibri {
+  background-image: url("../img/colibri.png");
+}
+
+.bg-flamingo {
+  background-image: url("../img/bg-flamingo.jpg");
+}
+
+.bg-macaw {
+  background-image: url("../img/bg-macaw.jpg");
+}
+
+.bg-colibri {
+  background-image: url("../img/bg-colibri.jpg");
+}
+
+.text-Flamingo:after, .text-Flamingo:before {
+  content: "Flamingo";
+}
+
+.text-Macaw:after, .text-Macaw:before {
+  content: "Macaw";
+}
+
+.text-Colibri:after, .text-Colibri:before {
+  content: "Colibri";
+}
+
+body {
+  height: 100%;
+  width: 100%;
+  background: url(../img/bg.jpg) center center no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+}
+
+.wrapper {
+  width: min(100%, 1200px);
+  margin: 0 auto;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.main {
+  width: 100%;
+  height: 100%;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(12, 60px);
+  grid-auto-rows: 1fr;
+  position: relative;
+}
+
+header {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  grid-column-start: 1;
+  grid-column-end: 3;
+  grid-row-start: 1;
+  grid-row-end: 5;
+  z-index: 4;
+  padding: 40px 40px 0 40px;
+}
+
+.logo {
+  font-family: "Gilroy-Heavy", serif;
+  font-size: 40px;
+  color: #fff;
+}
+
+ul.nav {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+  justify-content: center;
+}
+
+ul.nav li {
+  font-size: 40px;
+  padding-bottom: 20px;
+  font-family: "Gilroy-Heavy", serif;
+}
+
+nav {
+  display: none;
+}
+
+nav {
+  position: fixed;
+  top: 0;
+  right: 0;
+  z-index: 999999;
+  background: #fff;
+  width: 350px;
+  height: 100%;
+  overflow-y: scroll;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+  z-index: 5;
+}
+
+#overlay {
+  position: fixed; /* Sit on top of the page content */
+  display: none; /* Hidden by default */
+  width: 100%; /* Full width (cover the whole page) */
+  height: 100%; /* Full height (cover the whole page) */
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0, 0, 0, 0.5); /* Black background with opacity */
+  z-index: 4; /* Specify a stack order in case you're using a different order for other elements */
+  cursor: pointer; /* Add a pointer on hover */
+}
+
+.showmobile {
+  display: block !important;
+}
+
+.bird-image {
+  position: absolute;
+  background-size: contain;
+  background-position: right center;
+  background-repeat: no-repeat;
+  z-index: 2;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
+section {
+  display: flex;
+  align-items: center;
+  justify-content: start;
+  grid-column-start: 1;
+  grid-column-end: 3;
+  grid-row-start: 4;
+  grid-row-end: 7;
+  padding: 0 40px;
+}
+
+.text-Flamingo:after,
+.text-Macaw:after,
+.text-Colibri:after,
+.text-Flamingo:before,
+.text-Macaw:before,
+.text-Colibri:before {
+  font-family: "Gilroy-Heavy", serif;
+  font-size: 265px;
+}
+
+@supports (text-stroke: 4px white) or (-webkit-text-stroke: 4px white) {
+  .text-Flamingo:after, .text-Macaw:after, .text-Colibri:after {
+    position: absolute;
+    left: 0;
+    right: 0;
+    color: transparent;
+    -webkit-text-stroke: 4px #fff;
+    text-stroke: 4px #fff;
+    text-shadow: none;
+    z-index: 3;
+    text-align: left;
+    padding-left: 40px;
+  }
+}
+.text-Flamingo:before, .text-Macaw:before, .text-Colibri:before {
+  color: #fff;
+  z-index: 1;
+}
+
+footer {
+  grid-column-start: 1;
+  grid-column-end: 2;
+  grid-row-start: 9;
+  grid-row-end: 12;
+  color: #fff;
+  z-index: 4;
+  font-family: "Jura", serif;
+  font-size: 24px;
+  padding: 0 40px;
+}
+
+@media (max-width: 1200px) {
+  .text-Flamingo:after,
+.text-Macaw:after,
+.text-Colibri:after,
+.text-Flamingo:before,
+.text-Macaw:before,
+.text-Colibri:before {
+    font-size: 21vw;
+  }
+  .bird-image {
+    background-size: cover;
+    background-position: center center;
+  }
+  footer {
+    grid-column-end: 4;
+    grid-row-end: 8;
+    font-size: 22px;
+  }
+}/*# sourceMappingURL=style.css.map */

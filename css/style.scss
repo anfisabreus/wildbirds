@@ -1,0 +1,237 @@
+@mixin font-face($family, $file, $path, $svg, $weight: normal, $style: normal) {
+  @font-face {
+    font-family: $family;
+    src: url($path + $file + '.eot');
+    src: url($path + $file + '.eot?#iefix') format('embedded-opentype'), url($path + $file + '.woff') format('woff'), url($path + $file + '.ttf') format('truetype'), url($path + $file + '.svg##{$svg}') format('svg');
+    font-weight: $weight;
+    font-style: $style;
+}
+}
+
+@include font-face("Gilroy-Heavy", '../fonts/gilroy-heavy', '', '../fonts/gilroy-heavy');
+@include font-face("Jura", '../fonts/Jura-Bold', '', '../fonts/Jura-Bold');
+
+$gilroy-heavy: 'Gilroy-Heavy', serif;   
+$jura: 'Jura', serif;
+
+@mixin color($color, $color2, $color3, $name) {
+  .#{$name} {
+    background: $color;
+    background: linear-gradient(162deg, $color 0%,  $color2 68%, $color3 100%)
+}
+}
+
+@include color(rgb(118, 215, 235), rgb(79, 207, 234),  rgb(46, 182, 210), 'flamingo');
+@include color(rgb(253,63,98), rgb(255,0,46,1),  rgb(217,24,59,1), 'macaw');
+@include color(rgb(255, 227, 83), rgb(255, 203, 17),  rgb(224, 162, 1), 'colibri');
+
+$images: flamingo, macaw, colibri;
+
+@each $image in $images {
+  .image-#{$image} {
+   background-image:url('../img/' + $image + '.png');
+  }
+}
+
+@each $image in $images {
+  .bg-#{$image} {
+   background-image:url('../img/bg-' + $image + '.jpg');
+  }
+}
+
+
+$names: 'Flamingo', 'Macaw', 'Colibri';
+@each $name in $names {
+  .text-#{$name}:after, .text-#{$name}:before {
+   content: $name;
+  }
+
+}
+
+body {
+  height: 100%;
+  width: 100%;
+  background: url(../img/bg.jpg) center center no-repeat;
+  background-size: cover;
+  background-attachment: fixed;
+}
+
+.wrapper {
+  width: min(100%, 1200px);
+  margin: 0 auto;
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.main {
+  width: 100%;
+  height: 100%;
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  grid-template-rows: repeat(12, 60px);
+  grid-auto-rows: 1fr;
+  position: relative;
+  
+}
+
+header {
+  display: flex;
+  flex-direction: row;
+  justify-content:space-between;
+  grid-column-start: 1;
+  grid-column-end: 3;
+  grid-row-start: 1;
+  grid-row-end: 5;
+  z-index:4;
+  padding: 40px 40px 0 40px;
+}
+
+.logo {
+  font-family: $gilroy-heavy;
+  font-size: 40px;
+  color: #fff
+}
+
+
+ul.nav {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+  justify-content: center;
+    }
+
+ul.nav li {
+  font-size: 40px;
+  padding-bottom: 20px;
+  font-family: $gilroy-heavy;
+}
+
+nav {
+  display: none
+}
+nav {
+	position: fixed;
+  top: 0;
+  right: 0;
+  z-index: 999999;
+  background: #fff;
+  width:350px;
+  height: 100%;
+  overflow-y: scroll;
+  -webkit-box-shadow: 0 0 20px rgb(0 0 0 / 20%);
+  box-shadow: 0 0 20px rgb(0 0 0 / 20%);
+  z-index:5
+}
+
+#overlay {
+  position: fixed; /* Sit on top of the page content */
+  display: none; /* Hidden by default */
+  width: 100%; /* Full width (cover the whole page) */
+  height: 100%; /* Full height (cover the whole page) */
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: rgba(0,0,0,0.5); /* Black background with opacity */
+  z-index: 4; /* Specify a stack order in case you're using a different order for other elements */
+  cursor: pointer; /* Add a pointer on hover */
+}
+.showmobile {display:block !important}
+.bird-image {
+  position: absolute;
+  background-size:contain;
+  background-position: right center;
+  background-repeat: no-repeat;
+  z-index: 2;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
+
+
+section {
+  display: flex;
+  align-items:center;
+  justify-content:start;
+  grid-column-start: 1;
+  grid-column-end: 3;
+  grid-row-start: 4;
+  grid-row-end: 7;
+  padding: 0 40px;
+  }
+
+.text-Flamingo:after,
+.text-Macaw:after,
+.text-Colibri:after,
+.text-Flamingo:before,
+.text-Macaw:before,
+.text-Colibri:before {
+  font-family: $gilroy-heavy;
+  font-size: 265px;
+}
+
+@supports((text-stroke: 4px white) or (-webkit-text-stroke: 4px white)) {
+.text-Flamingo:after, .text-Macaw:after,  .text-Colibri:after {
+  position: absolute;
+  left: 0;
+  right: 0;
+  color: transparent;
+  -webkit-text-stroke: 4px #fff;
+  text-stroke: 4px #fff;
+  text-shadow: none;
+  z-index:3;
+  text-align: left;
+  padding-left: 40px;
+}
+}
+.text-Flamingo:before, .text-Macaw:before, .text-Colibri:before {
+  color: #fff;
+  z-index:1 
+}
+
+footer {
+  grid-column-start: 1;
+  grid-column-end: 2;
+  grid-row-start: 9;
+  grid-row-end: 12;
+  color: #fff;
+  z-index: 4;
+  font-family:$jura;
+  font-size: 24px;
+  padding: 0 40px;
+}
+
+
+
+@media(max-width: 1200px) {
+
+
+.text-Flamingo:after,
+.text-Macaw:after, 
+.text-Colibri:after,
+.text-Flamingo:before,
+.text-Macaw:before,
+.text-Colibri:before { 
+  font-size: 21vw;
+  }
+
+.bird-image {
+  background-size:cover;
+  background-position: center center;
+  }
+
+footer
+  {
+  grid-column-end: 4;
+   grid-row-end: 8;
+  font-size: 22px;}
+}
+
